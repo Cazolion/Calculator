@@ -1,0 +1,129 @@
+/* Colour palette
+
+#003049 - dark blue
+#DE1D1D - red
+#FF8400 - orange
+#FCB62C - yellow
+#F1EEDD - beige
+*/
+
+body {
+    background-color: #F1EEDD;
+    color: #003049;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 8px solid #FCB62C;
+}
+
+.title {
+    background-color: #003049;
+    color: #FCB62C;
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.footer {
+    background-color: #003049;
+    color: #FCB62C;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 8px;
+    border-top: 8px solid #FF8400;
+}
+
+.menu {
+    display: flex;
+    background-color: #DE1D1D;
+    justify-content: space-around;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    flex: 1;
+}
+
+.submenu {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 4px;
+    color: #FCB62C;
+    border-bottom: 8px solid #FF8400;
+    font-weight: bold;
+}
+
+.submenu:hover {
+    background-color: #FCB62C;
+    color: #003049;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.calculator {
+    /* display: flex;
+    justify-content: center; */
+    background-color: #003049;
+    width: 400px;
+    padding: 10px;
+    align-self: center;
+    border: 4px outset #FF8400;
+
+
+}
+
+button {
+    background-color: #003049;
+    border: 4px outset #FF8400;
+    color: #F1EEDD;
+    font-size: 24px;
+    width: 60px;
+    padding: 6px;
+}
+
+button:hover {
+    background-color: #F1EEDD;
+    color: #003049;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 8px;
+}
+
+.display {
+    background-color: #F1EEDD;
+    border: 4px outset #FF8400;
+    padding: 8px;
+    margin: 8px;
+    font-size: 36px;
+    color:#DE1D1D
+
+
+}
