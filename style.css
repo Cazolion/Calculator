@@ -88,8 +88,6 @@ a {
     padding: 10px;
     align-self: center;
     border: 4px outset #FF8400;
-
-
 }
 
 button {
@@ -115,6 +113,7 @@ button:active {
     gap: 16px;
     flex-wrap: wrap;
     padding: 8px;
+    justify-content: space-between;
 }
 
 .display {
@@ -122,8 +121,8 @@ button:active {
     border: 4px outset #FF8400;
     padding: 8px;
     margin: 8px;
+    width: 90%;
     font-size: 36px;
-    color:#DE1D1D
-
-
+    color:#DE1D1D;
+    text-align: right;
 }
