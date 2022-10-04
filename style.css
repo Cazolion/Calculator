@@ -76,13 +76,15 @@ a {
 
 .content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
     padding-top: 50px;
+    border-bottom: 8px solid #FCB62C;
 }
 
 .calculator {
-    /* display: flex;
-    justify-content: center; */
     background-color: #003049;
     width: 400px;
     padding: 10px;
@@ -125,4 +127,6 @@ button:active {
     font-size: 36px;
     color:#DE1D1D;
     text-align: right;
+    height: 60px;
+
 }
