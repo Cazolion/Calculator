@@ -37,7 +37,7 @@ const display = document.querySelector('.display');
 
 const one = document.getElementById("one");
 one.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR"){
         display.textContent = "1"
     }
     else {
@@ -47,7 +47,7 @@ one.addEventListener('click', () => {
 
 const two = document.getElementById("two");
 two.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "2"
     }
     else {
@@ -57,7 +57,7 @@ two.addEventListener('click', () => {
 
 const three = document.getElementById("three");
 three.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "3"
     }
     else {
@@ -67,7 +67,7 @@ three.addEventListener('click', () => {
 
 const four = document.getElementById("four");
 four.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "4"
     }
     else {
@@ -77,7 +77,7 @@ four.addEventListener('click', () => {
 
 const five = document.getElementById("five");
 five.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "5"
     }
     else {
@@ -87,7 +87,7 @@ five.addEventListener('click', () => {
 
 const six = document.getElementById("six");
 six.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "6"
     }
     else {
@@ -97,7 +97,7 @@ six.addEventListener('click', () => {
 
 const seven = document.getElementById("seven");
 seven.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "7"
     }
     else {
@@ -107,7 +107,7 @@ seven.addEventListener('click', () => {
 
 const eight = document.getElementById("eight");
 eight.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "8"
     }
     else {
@@ -117,7 +117,7 @@ eight.addEventListener('click', () => {
 
 const nine = document.getElementById("nine");
 nine.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "9"
     }
     else {
@@ -127,7 +127,7 @@ nine.addEventListener('click', () => {
 
 const zero = document.getElementById("zero");
 zero.addEventListener('click', () => {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" || display.textContent === "ERROR"){
         display.textContent = "0"
     }
     else {
@@ -189,12 +189,11 @@ allclear.addEventListener('click', () => {
     document.getElementById("dot").disabled = false;
 })
 
-// const clearentry = document.getElementById("clearentry");
-// clearentry.addEventListener('click', () => {
-//     a = 0;
-//     display.textContent = "";
-//     document.getElementById("dot").disabled = false;
-// })
+const clearentry = document.getElementById("clearentry");
+clearentry.addEventListener('click', () => {
+    display.textContent = "";
+    document.getElementById("dot").disabled = false;
+})
 
 let a = 0;
 let b = 0;
@@ -202,8 +201,12 @@ let operator = "";
 
 
 // Bugs to fix
-// Clear entry doesn't work 
 // Clicking an operator first breaks calculator
 // NaN 
 // Keyboard feature
 // Chaining operators doesn't work
+
+function doAnimation() {
+    display.className = "turtle";
+}
+

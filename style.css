@@ -128,5 +128,23 @@ button:active {
     color:#DE1D1D;
     text-align: right;
     height: 60px;
+}
 
+.turtle {
+    width: 50px;
+    animation-name: slide;
+    animation-duration: 5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes slide {
+    from {
+        margin-right: 0px;
+    }
+    50% {
+        margin-right: 250px;
+    }
+    to {
+        margin-right: 500px;
+    }
 }
