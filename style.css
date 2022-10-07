@@ -86,7 +86,7 @@ a {
 
 .calculator {
     background-color: #003049;
-    width: 400px;
+    width: 360px;
     padding: 10px;
     align-self: center;
     border: 4px outset #FF8400;
@@ -115,7 +115,7 @@ button:active {
     gap: 16px;
     flex-wrap: wrap;
     padding: 8px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .display {
@@ -147,4 +147,8 @@ button:active {
     to {
         margin-right: 500px;
     }
+}
+
+#turtle {
+    display: none;
 }

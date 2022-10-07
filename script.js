@@ -34,7 +34,6 @@ function operate(a, operator, b) {
 
 const display = document.querySelector('.display');
 
-
 const one = document.getElementById("one");
 one.addEventListener('click', () => {
     if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR"){
@@ -182,8 +181,6 @@ equal.addEventListener('click', () => {
 
 const allclear = document.getElementById("allclear");
 allclear.addEventListener('click', () => {
-    a = 0;
-    b = 0;
     operator = "";
     display.textContent = "";
     document.getElementById("dot").disabled = false;
@@ -206,7 +203,7 @@ let operator = "";
 // Keyboard feature
 // Chaining operators doesn't work
 
-function doAnimation() {
-    display.className = "turtle";
+function show() {
+    document.getElementById('turtle').style.display = "block";
 }
 
