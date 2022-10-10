@@ -128,27 +128,25 @@ button:active {
     color:#DE1D1D;
     text-align: right;
     height: 60px;
+    overflow: hidden;
 }
 
-.turtle {
-    width: 50px;
+#turtle {
+    width: 75px;
     animation-name: slide;
-    animation-duration: 5s;
-    animation-fill-mode: backwards;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    display: none;
 }
 
 @keyframes slide {
     from {
-        margin-right: 0px;
+        margin-right: -100px;
     }
     50% {
-        margin-right: 250px;
+        margin-right: 0px;
     }
     to {
-        margin-right: 500px;
+        margin-right: -100px;
     }
-}
-
-#turtle {
-    display: none;
 }

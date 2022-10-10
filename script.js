@@ -204,6 +204,6 @@ let operator = "";
 // Chaining operators doesn't work
 
 function show() {
-    document.getElementById('turtle').style.display = "block";
+    document.getElementById('turtle').style.display = "inline-block";
 }
 
