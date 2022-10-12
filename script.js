@@ -202,8 +202,18 @@ let operator = "";
 // NaN 
 // Keyboard feature
 // Chaining operators doesn't work
+// No rounding up 
 
 function show() {
+    let turtle = document.createElement("img")
+    display.appendChild(turtle);
+    turtle.setAttribute("width", "100")
+    turtle.setAttribute("src", './images/enguarde.png')
+    turtle.setAttribute("id", "turtle");
     document.getElementById('turtle').style.display = "inline-block";
+    setTimeout(
+        function hide() {
+        document.getElementById('turtle').style.display = 'none'
+    }, 5000)
 }
 
