@@ -7,7 +7,7 @@ function show() {
     let turtle = document.createElement("img")
     display.appendChild(turtle);
     turtle.setAttribute("width", "100")
-    turtle.setAttribute("src", './images/enguarde.png')
+    turtle.setAttribute("src", './images/cooldude.png')
     turtle.setAttribute("id", "turtle");
     turtle.style.display = "inline-block";
     setTimeout(
