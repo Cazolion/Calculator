@@ -126,9 +126,11 @@ button:active {
     width: 90%;
     font-size: 36px;
     color:#DE1D1D;
-    text-align: right;
     height: 60px;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 #turtle {
