@@ -12,9 +12,23 @@ function show() {
     turtle.style.display = "inline-block";
     setTimeout(
         function hide() {
-        turtle.style.display = 'none'
+        turtle.style.display = 'none';
     }, 5000)
-}
+};
+
+function naughty() {
+    let naughty = document.createElement("img")
+    display.textContent = "oh heck!! ";
+    display.appendChild(naughty);
+    naughty.setAttribute("width", "100")
+    naughty.setAttribute("src", './images/two.png')
+    naughty.style.display = "inline-block";
+    setTimeout(
+        function hide() {
+        naughty.style.display = 'none';
+        display.textContent = "0";
+    }, 5000)
+};
 
 function add(a, b) {
     return a + b;
@@ -34,16 +48,16 @@ function divide(a, b) {
 
 function operate(a, operator, b) {
     if (operator === "+") {
-        return add(a, b)
+        return +add(a, b).toFixed(8)
     }
     else if (operator === "-") {
-        return subtract(a, b)
+        return +subtract(a, b).toFixed(8)
     }
     else if (operator === "*") {
-        return multiply(a, b)
+        return +multiply(a, b).toFixed(8)
     }
     else if (operator === "/") {
-        return divide(a, b)
+        return +divide(a, b).toFixed(8)
     }
     else {
         return "ERROR"
@@ -61,59 +75,68 @@ function getNumber(input) {
     else {
         display.textContent += input;
     }
-}
+};
 
 function getOperator(inputOperator) {
-    a = parseFloat(display.textContent);
+    if(display.textContent === "ERROR") {
+        a = 0;
+    }
+    else {
+        a = parseFloat(display.textContent);
+    }
     operator = inputOperator;
     display.textContent = operator;
     document.getElementById("dot").disabled = false;
-}
+};
 
 numerical.forEach(numero => {
     numero.addEventListener('click', () => {
         getNumber(numero.textContent)
     })
-})
+});
 
 operation.forEach(sign => {
     sign.addEventListener('click', () => {
         getOperator(sign.textContent)
     })
-})
+});
 
 dot.addEventListener('click', () => {
     display.textContent += ".";
     document.getElementById("dot").disabled = true;
-})
+});
 
 equal.addEventListener('click', () => {
-    b = parseFloat(display.textContent)
-    display.textContent = operate(a, operator, b);
-    document.getElementById("dot").disabled = false;
-})
+    if(display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" ) {
+        display.textContent = "0";
+    }
+    else if(operator === "/" && display.textContent === "0") {
+        naughty();
+    }
+    else {
+        b = parseFloat(display.textContent)
+        display.textContent = operate(a, operator, b);
+        document.getElementById("dot").disabled = false;
+    }
+});
 
 allclear.addEventListener('click', () => {
     operator = "";
-    display.textContent = "";
+    display.textContent = "0";
     document.getElementById("dot").disabled = false;
-})
+});
 
 clearentry.addEventListener('click', () => {
-    display.textContent = "";
+    display.textContent = "0";
     document.getElementById("dot").disabled = false;
-})
+});
 
 let a = 0;
 let b = 0;
-let operator = "";
+let operator = "+";
 
 
 // Bugs to fix
-// Clicking an operator first breaks calculator
 // NaN 
 // Keyboard feature
 // Chaining operators doesn't work
-// No rounding up 
-
-
