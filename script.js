@@ -47,8 +47,6 @@ function divide(a, b) {
 };
 
 function operate(a, operator, b) {
-    a = Number(a);
-    b = Number (b);
     if (operator === "+") {
         return +add(a, b).toFixed(8)
     }
@@ -71,7 +69,7 @@ const numerical = document.querySelectorAll('.numerical');
 const operation = document.querySelectorAll('.operation');
 
 function getNumber(input) {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR" || display.textContent === "NaN"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR" || display.textContent === "NaN" || display.textContent === "0"){
         display.textContent = input;
     }
     else {
@@ -80,26 +78,54 @@ function getNumber(input) {
 };
 
 function getOperator(inputOperator) {
-    if(display.textContent === "ERROR") {
+    document.getElementById("dot").disabled = false;
+    if (display.textContent === "ERROR") {
         a = 0;
     }
-    else {
+    else if (operator === "" || result === true) {
+        operator = inputOperator;
         a = parseFloat(display.textContent);
+        display.textContent = operator;
+        result = false;        
     }
-    operator = inputOperator;
-    display.textContent = operator;
-    document.getElementById("dot").disabled = false;
+    else {
+        b = parseFloat(display.textContent);
+        a = operate(a, operator, b);
+        operator = inputOperator;
+        display.textContent = operator;
+    }
 };
+
+equal.addEventListener('click', () => {
+    if(display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" ) {
+        display.textContent = "0";
+    }
+    else if(operator === "/" && display.textContent === "0") {
+        naughty();
+        operator = "";
+    }
+    else {
+        b = parseFloat(display.textContent)
+        a = operate(a, operator, b);
+        display.textContent = a;
+        document.getElementById("dot").disabled = false;
+        result = true;
+    }
+});
 
 numerical.forEach(numero => {
     numero.addEventListener('click', () => {
         getNumber(numero.textContent);
+        enableOperator();
     })
 });
 
+
 operation.forEach(sign => {
     sign.addEventListener('click', () => {
+        result = true;
         getOperator(sign.textContent);
+        disableOperator();
     })
 });
 
@@ -108,37 +134,42 @@ dot.addEventListener('click', () => {
     document.getElementById("dot").disabled = true;
 });
 
-equal.addEventListener('click', () => {
-    if(display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/" ) {
-        display.textContent = "0";
-    }
-    else if(operator === "/" && display.textContent === "0") {
-        naughty();
-    }
-    else {
-        b = parseFloat(display.textContent)
-        display.textContent = operate(a, operator, b);
-        document.getElementById("dot").disabled = false;
-    }
-});
 
 allclear.addEventListener('click', () => {
+    a = 0;
+    b = 0;
     operator = "";
+    result = false;
     display.textContent = "0";
+    enableOperator();
     document.getElementById("dot").disabled = false;
 });
 
 clearentry.addEventListener('click', () => {
     display.textContent = "0";
+    enableOperator();
     document.getElementById("dot").disabled = false;
 });
 
 let a = 0;
 let b = 0;
-let operator = "+";
+let operator = "";
+let typoperator = false;
+let result = false;
 
+function disableOperator() {
+    document.getElementById("plus").disabled = true;
+    document.getElementById("minus").disabled = true;
+    document.getElementById("multiply").disabled = true;
+    document.getElementById("divide").disabled = true;
+}
+
+function enableOperator() {
+    document.getElementById("plus").disabled = false;
+    document.getElementById("minus").disabled = false;
+    document.getElementById("multiply").disabled = false;
+    document.getElementById("divide").disabled = false;
+}
 
 // Bugs to fix
-// NaN 
 // Keyboard feature
-// Chaining operators doesn't work
