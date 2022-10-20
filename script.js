@@ -13,12 +13,12 @@ function show() {
     setTimeout(
         function hide() {
         turtle.style.display = 'none';
-    }, 5000)
+    }, 10000)
 };
 
 function naughty() {
     let naughty = document.createElement("img")
-    display.textContent = "oh heck!! ";
+    display.textContent = "oh heck!";
     display.appendChild(naughty);
     naughty.setAttribute("width", "100")
     naughty.setAttribute("src", './images/two.png')
@@ -47,6 +47,8 @@ function divide(a, b) {
 };
 
 function operate(a, operator, b) {
+    a = Number(a);
+    b = Number (b);
     if (operator === "+") {
         return +add(a, b).toFixed(8)
     }
@@ -69,7 +71,7 @@ const numerical = document.querySelectorAll('.numerical');
 const operation = document.querySelectorAll('.operation');
 
 function getNumber(input) {
-    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR"){
+    if (display.textContent === "+" || display.textContent === "-" || display.textContent === "*" || display.textContent === "/"|| display.textContent === "ERROR" || display.textContent === "NaN"){
         display.textContent = input;
     }
     else {
@@ -91,13 +93,13 @@ function getOperator(inputOperator) {
 
 numerical.forEach(numero => {
     numero.addEventListener('click', () => {
-        getNumber(numero.textContent)
+        getNumber(numero.textContent);
     })
 });
 
 operation.forEach(sign => {
     sign.addEventListener('click', () => {
-        getOperator(sign.textContent)
+        getOperator(sign.textContent);
     })
 });
 
