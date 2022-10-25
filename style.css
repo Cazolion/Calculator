@@ -139,7 +139,7 @@ button:active {
 #turtle {
     width: 75px;
     animation-name: slide;
-    animation-duration: 6s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     display: none;
 }

@@ -13,7 +13,7 @@ function show() {
     setTimeout(
         function hide() {
         turtle.style.display = 'none';
-    }, 10000)
+    }, 5000)
 };
 
 function naughty() {
@@ -27,7 +27,7 @@ function naughty() {
         function hide() {
         naughty.style.display = 'none';
         display.textContent = "0";
-    }, 5000)
+    }, 10000)
 };
 
 function add(a, b) {
@@ -173,3 +173,4 @@ function enableOperator() {
 
 // Bugs to fix
 // Keyboard feature
+// Rounding problems
